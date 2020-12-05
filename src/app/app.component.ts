@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-fundamentals';
+  personList: string[] = ['Romelio', 'Fulano', 'Perenzejo'];
+
+  onShowGreet(event:any) {
+    console.log(event)
+  }
 }
