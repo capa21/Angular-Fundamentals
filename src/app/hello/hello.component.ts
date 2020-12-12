@@ -12,6 +12,7 @@ export class HelloComponent{
 
   listName: string[] = [];
   itemName: string = "";
+  selName: string[] = [];
 
   constructor() {
   }
@@ -25,10 +26,27 @@ export class HelloComponent{
     console.log(this.listName);
     this.itemName = "";
   }
+
   delName() {
-    const index: number = this.listName.indexOf(this.itemName);
+    for(let i = 0; i <= this.selName.length; i++) {
+      this.delNameVector(this.listName, this.selName[i]);
+    }
+    this.selName = [];
+  }
+
+  delNameVector(vector:Array<string>, item:any) {
+    const index: number = vector.indexOf(item);
     if (index !== -1) {
-        this.listName.splice(index, 1);
+      vector.splice(index, 1);
+    }
+  }
+
+  toogleSelName(checked:boolean, name:string) {
+
+    if (checked) {
+      this.selName.push(name);
+    } else {
+      this.delNameVector(this.selName, name);
     }
   }
 }

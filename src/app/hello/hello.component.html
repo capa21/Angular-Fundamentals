@@ -5,3 +5,10 @@
 <p (click)="onNameClick()" >
   Hello {{name}}!
 </p>
+
+<ul>
+  <li *ngFor="let item of listName">
+    <input type="checkbox" [value]="item" (change)="toogleSelName($event.srcElement.checked, item)" />
+    <label>{{item}}</label>
+  </li>
+</ul>
