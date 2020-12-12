@@ -14,9 +14,6 @@ export class HelloComponent{
   itemName: string = "";
   namesSelectedToDelete: string []= [];
 
-  constructor() {
-  }
-
   onNameClick() {
     this.greet.emit("Hello guys");
   }
@@ -38,12 +35,12 @@ export class HelloComponent{
   }
 
   updateCheckedList(event: any) {
-    const isCheckedItem = event.target.checked;
-    const nameItem = event.target.value;
-    if(isCheckedItem){
-      this.addNameToArray(nameItem, this.namesSelectedToDelete);
+    const isCheckedName = event.target.checked;
+    const itenName = event.target.value;
+    if(isCheckedName){
+      this.addNameToArray(itenName, this.namesSelectedToDelete);
     }else{
-      this.delNameOfArray(nameItem, this.namesSelectedToDelete);
+      this.delNameOfArray(itenName, this.namesSelectedToDelete);
     }
   }
 
