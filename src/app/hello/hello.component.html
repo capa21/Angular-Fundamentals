@@ -4,11 +4,4 @@
 <p (click)="onNameClick()" >
   Hello {{name}}!
 </p>
-<div *ngFor="let person of listName" >
-  <input type="checkbox" [value]="person" (change)="updateCheckedList($event)">
-  <span>{{person}}</span>
-</div>
-
-
-
-
+<person-list [persons]="listName" [namesSelected]="namesSelectedToDelete" (namesSelectedUpdate)="updateCheckedList($event)"></person-list>

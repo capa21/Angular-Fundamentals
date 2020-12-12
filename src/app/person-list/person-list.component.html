@@ -1,0 +1,4 @@
+<div *ngFor="let person of persons" >
+<input type="checkbox" [value]="person" (change)="updateCheckedList($event)">
+<span>{{person}}</span>
+</div>

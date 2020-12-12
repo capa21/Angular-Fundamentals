@@ -12,7 +12,7 @@ export class HelloComponent{
 
   listName: string[] = [];
   itemName: string = "";
-  namesSelectedToDelete: string []= [];
+  namesSelectedToDelete: string[] = [];
 
   onNameClick() {
     this.greet.emit("Hello guys");
@@ -34,19 +34,15 @@ export class HelloComponent{
     }
   }
 
-  updateCheckedList(event: any) {
-    const isCheckedName = event.target.checked;
-    const itenName = event.target.value;
-    if(isCheckedName){
-      this.addNameToArray(itenName, this.namesSelectedToDelete);
-    }else{
-      this.delNameOfArray(itenName, this.namesSelectedToDelete);
-    }
+  updateCheckedList(selectedItems: string[]) {
+    this.namesSelectedToDelete = selectedItems;
   }
 
   delSelectedNames() {
-    this.namesSelectedToDelete.forEach(name  => {
+    this.namesSelectedToDelete.forEach(name => {
       this.delNameOfArray(name, this.listName);
     });
+
+    this.namesSelectedToDelete = [];
   }
 }
