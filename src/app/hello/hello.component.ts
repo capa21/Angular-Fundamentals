@@ -12,6 +12,7 @@ export class HelloComponent{
 
   listName: string[] = [];
   itemName: string = "";
+  namesSelectedToDelete: string []= [];
 
   constructor() {
   }
@@ -21,14 +22,34 @@ export class HelloComponent{
   }
 
   addName() {
-    this.listName.push(this.itemName);
-    console.log(this.listName);
+    this.addNameToArray(this.itemName, this.listName)
     this.itemName = "";
   }
-  delName() {
-    const index: number = this.listName.indexOf(this.itemName);
+
+  addNameToArray(name: string, array: Array<string>) {
+    array.push(name);
+  }
+
+  delNameOfArray(name: string, array: Array<string>) {
+    const index: number = array.indexOf(name);
     if (index !== -1) {
-        this.listName.splice(index, 1);
+      array.splice(index, 1);
     }
+  }
+
+  updateCheckedList(event: any) {
+    const isCheckedItem = event.target.checked;
+    const nameItem = event.target.value;
+    if(isCheckedItem){
+      this.addNameToArray(nameItem, this.namesSelectedToDelete);
+    }else{
+      this.delNameOfArray(nameItem, this.namesSelectedToDelete);
+    }
+  }
+
+  delSelectedNames() {
+    this.namesSelectedToDelete.forEach(name  => {
+      this.delNameOfArray(name, this.listName);
+    });
   }
 }
