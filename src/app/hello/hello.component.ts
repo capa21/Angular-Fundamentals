@@ -12,41 +12,41 @@ export class HelloComponent{
 
   listName: string[] = [];
   itemName: string = "";
-  selName: string[] = [];
-
-  constructor() {
-  }
+  namesSelectedToDelete: string []= [];
 
   onNameClick() {
     this.greet.emit("Hello guys");
   }
 
   addName() {
-    this.listName.push(this.itemName);
-    console.log(this.listName);
+    this.addNameToArray(this.itemName, this.listName)
     this.itemName = "";
   }
 
-  delName() {
-    for(let i = 0; i <= this.selName.length; i++) {
-      this.delNameVector(this.listName, this.selName[i]);
-    }
-    this.selName = [];
+  addNameToArray(name: string, array: Array<string>) {
+    array.push(name);
   }
 
-  delNameVector(vector:Array<string>, item:any) {
-    const index: number = vector.indexOf(item);
+  delNameOfArray(name: string, array: Array<string>) {
+    const index: number = array.indexOf(name);
     if (index !== -1) {
-      vector.splice(index, 1);
+      array.splice(index, 1);
     }
   }
 
-  toogleSelName(checked:boolean, name:string) {
-
-    if (checked) {
-      this.selName.push(name);
-    } else {
-      this.delNameVector(this.selName, name);
+  updateCheckedList(event: any) {
+    const isCheckedName = event.target.checked;
+    const itenName = event.target.value;
+    if(isCheckedName){
+      this.addNameToArray(itenName, this.namesSelectedToDelete);
+    }else{
+      this.delNameOfArray(itenName, this.namesSelectedToDelete);
     }
+  }
+
+  delSelectedNames() {
+    this.namesSelectedToDelete.forEach(name  => {
+      this.delNameOfArray(name, this.listName);
+    });
   }
 }
