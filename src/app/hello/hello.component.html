@@ -1,13 +1,10 @@
 <input type="text" [(ngModel)]="itemName" (keydown.enter)="addName()">
 <button (click)="addName()">Add Name</button>
 <button (click)="delSelectedNames()">Del Names</button>
-<p (click)="onNameClick()" >
+<p (click)="onNameClick()" [ngSwitch]="">
   Hello {{name}}!
 </p>
-<div *ngFor="let person of listName" >
-  <input type="checkbox" [value]="person" (change)="updateCheckedList($event)">
-  <span>{{person}}</span>
-</div>
+<person-list  [listName]="listName" (nameSelected)="updateCheckedList($event)"></person-list>
 
 
 

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild} from '@angular/core';
 
 
 @Component({
@@ -35,6 +35,7 @@ export class HelloComponent{
   }
 
   updateCheckedList(event: any) {
+    console.log(event, 'event');
     const isCheckedName = event.target.checked;
     const itenName = event.target.value;
     if(isCheckedName){
@@ -48,5 +49,6 @@ export class HelloComponent{
     this.namesSelectedToDelete.forEach(name  => {
       this.delNameOfArray(name, this.listName);
     });
+    this.namesSelectedToDelete = [];
   }
 }
