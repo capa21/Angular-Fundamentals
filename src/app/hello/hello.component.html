@@ -6,6 +6,6 @@
 </p>
 <person-list  [listName]="listName" (nameSelected)="updateCheckedList($event)"></person-list>
 
+<br/>
 
-
-
+<app-mensaje [tipo]="getInfo()" [mensaje]="getMensaje()" *ngIf="openedToast" (cerrar)="closeToast()"></app-mensaje>

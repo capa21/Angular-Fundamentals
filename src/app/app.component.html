@@ -1,12 +1,14 @@
 <div style="text-align:center">
-  <h1>
-    Let's learn Angular
-  </h1>
-  <div [class.greet]="myCustomHello.listName.length > 0" [style.background-color]="myCustomHello.listName.length > 0 ? 'indigo': 'blue'" >
+
+  <h1>Seguir aprendiendo</h1>
+
+  <div [class.greet]="myCustomHello.listName.length > 0"
+       [style.background-color]="myCustomHello.listName.length > 0 ? 'indigo': 'blue'"
+       *ngIf="myCustomHello.listName.length >= 3"
+       >
     Hello Guys:
     {{myCustomHello.listName.toString()}}
   </div>
   <br>
   <custom-hello #myCustomHello [name]="" (greet)="onShowGreet($event)"></custom-hello>
-  <!-- <custom-hello *ngFor="let person of personList" [name]="person"></custom-hello> -->
 </div>
