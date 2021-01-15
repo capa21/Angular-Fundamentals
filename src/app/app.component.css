@@ -1,8 +1,20 @@
 p {
-  color: red;
   font-size: 1.6em;
 }
 .greet {
   font-size: 2.5rem;
   color: green;
+}
+
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+.blue {
+  background-color: blue;
+}
+.yellow {
+  background-color: yellow;
 }

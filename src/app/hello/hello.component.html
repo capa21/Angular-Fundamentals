@@ -1,11 +1,10 @@
 <input type="text" [(ngModel)]="itemName" (keydown.enter)="addName()">
 <button (click)="addName()">Add Name</button>
 <button (click)="delSelectedNames()">Del Names</button>
-<p (click)="onNameClick()" [ngSwitch]="">
+<p (click)="onNameClick()">
   Hello {{name}}!
 </p>
 <person-list  [listName]="listName" (nameSelected)="updateCheckedList($event)"></person-list>
-
 
 
 

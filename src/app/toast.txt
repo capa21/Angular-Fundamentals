@@ -1,0 +1,9 @@
+Crear un componente tipo Toast
+Tipos:
+ - Info
+ - Warning
+ - Error
+
+ Info-> 3 Personas - 4 //El número de personas es aceptable //Fondo color azulito
+ Warning-> 5 Personas - 10 personas //El número de personas está creciendo preocupantemente //Fondo color Amarillo
+ Error-> > 10 personas //El número de personas no puede ser mayor a 10 //Fondo color rojo

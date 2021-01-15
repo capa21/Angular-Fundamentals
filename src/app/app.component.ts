@@ -12,4 +12,13 @@ export class AppComponent {
   onShowGreet(event:any) {
     console.log(event)
   }
+
+  updateClass(lengthList: number) {
+    return {
+      'red': lengthList >= 2,
+      'yellow': lengthList >= 3,
+      'green': lengthList >= 4,
+      'blue': lengthList >= 6
+    }
+  }
 }

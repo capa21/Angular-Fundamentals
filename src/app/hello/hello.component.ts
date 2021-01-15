@@ -52,3 +52,9 @@ export class HelloComponent{
     this.namesSelectedToDelete = [];
   }
 }
+
+/*build-in
+
+. Atributos -> NgClass, NgStyle, NgModel
+. Estructurales -> *NgForOf, *NgIf, *NgSwitch
+*/

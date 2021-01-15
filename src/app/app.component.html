@@ -1,10 +1,16 @@
-<div style="text-align:center">
-  <h1>
+<div style="text-align:center" [ngSwitch]="myCustomHello.listName.length">
+  <h1 *ngSwitchCase="5">
     Let's learn Angular
   </h1>
-  <div [class.greet]="myCustomHello.listName.length > 0" [style.background-color]="myCustomHello.listName.length > 0 ? 'indigo': 'blue'" >
+  <div
+    *ngSwitchCase="2"
+    [style.background-color]="myCustomHello.listName.length > 0 ? 'indigo': 'blue'"
+    >
     Hello Guys:
     {{myCustomHello.listName.toString()}}
+  </div>
+  <div *ngSwitchDefault [ngClass]="updateClass(myCustomHello.listName.length)">
+    <p>Esta es la condición por defecto</p>
   </div>
   <br>
   <custom-hello #myCustomHello [name]="" (greet)="onShowGreet($event)"></custom-hello>
