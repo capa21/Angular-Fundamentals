@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div style="text-align:center" [ngSwitch]="myCustomHello.listName.length">
   <h1 *ngSwitchCase="5">
     Let's learn Angular
@@ -6,6 +7,16 @@
     *ngSwitchCase="2"
     [style.background-color]="myCustomHello.listName.length > 0 ? 'indigo': 'blue'"
     >
+=======
+<div style="text-align:center">
+
+  <h1>Seguir aprendiendo</h1>
+
+  <div [class.greet]="myCustomHello.listName.length > 0"
+       [style.background-color]="myCustomHello.listName.length > 0 ? 'indigo': 'blue'"
+       *ngIf="myCustomHello.listName.length >= 3"
+       >
+>>>>>>> 8303fb0908634e3142e5aa05af4d18bf0284ca83
     Hello Guys:
     {{myCustomHello.listName.toString()}}
   </div>
@@ -14,5 +25,4 @@
   </div>
   <br>
   <custom-hello #myCustomHello [name]="" (greet)="onShowGreet($event)"></custom-hello>
-  <!-- <custom-hello *ngFor="let person of personList" [name]="person"></custom-hello> -->
 </div>
